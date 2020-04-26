@@ -37,9 +37,9 @@ function createTable(cols, rows) {
     table.className = 'table-bordered table-sm';
     divWrapper.className = 'col-sm-12 order-sm-12 order-sm-1';
     div.className = 'table-responsive';
-    caption.innerText = 'Без названия';
+    caption.innerText = 'Р‘РµР· РЅР°Р·РІР°РЅРёСЏ';
     table.appendChild(caption);
-    // + 1 к строкам и столбцам, т.к. добавились служебные поля
+    // + 1 Рє СЃС‚СЂРѕРєР°Рј Рё СЃС‚РѕР»Р±С†Р°Рј, С‚.Рє. РґРѕР±Р°РІРёР»РёСЃСЊ СЃР»СѓР¶РµР±РЅС‹Рµ РїРѕР»СЏ
     for (let i = 0; i < +rows + 1; i++) {
         let tr = document.createElement('tr');
         if (i === 0) {
@@ -140,24 +140,24 @@ function createColumn(container) {
     let currentColIndex = Array.from(currentTr.children).indexOf(currentTd);
     let currentColsQuantity = currentTr.childNodes.length;
     let currentRowsQuantity = table.querySelectorAll('tr').length;
-    // получаем index столбца, перед которым мы должны добавить новый
+    // РїРѕР»СѓС‡Р°РµРј index СЃС‚РѕР»Р±С†Р°, РїРµСЂРµРґ РєРѕС‚РѕСЂС‹Рј РјС‹ РґРѕР»Р¶РЅС‹ РґРѕР±Р°РІРёС‚СЊ РЅРѕРІС‹Р№
     for (let i = 0; i < currentRowsQuantity; i++) {
         let tr = table.children[i + 1];
-        // добавление системных клеток в первую строчку
+        // РґРѕР±Р°РІР»РµРЅРёРµ СЃРёСЃС‚РµРјРЅС‹С… РєР»РµС‚РѕРє РІ РїРµСЂРІСѓСЋ СЃС‚СЂРѕС‡РєСѓ
         if (i === 0) {
             let td = document.createElement('td');
             td.style = 'position: relative; height: 45px';
             addMouseEventsOnTableCell(td, false);
             td.innerHTML += getLetterById(currentColIndex - 1);
             currentTd.before(td);
-            /*замена букв в первой строке:
-            * начинаем с клетки после текущего, так как уже вставили элемент
-            * пробегаемся по всем клеткам до конца и меняем букву на следующую по алфавиту */
+            /*Р·Р°РјРµРЅР° Р±СѓРєРІ РІ РїРµСЂРІРѕР№ СЃС‚СЂРѕРєРµ:
+            * РЅР°С‡РёРЅР°РµРј СЃ РєР»РµС‚РєРё РїРѕСЃР»Рµ С‚РµРєСѓС‰РµРіРѕ, С‚Р°Рє РєР°Рє СѓР¶Рµ РІСЃС‚Р°РІРёР»Рё СЌР»РµРјРµРЅС‚
+            * РїСЂРѕР±РµРіР°РµРјСЃСЏ РїРѕ РІСЃРµРј РєР»РµС‚РєР°Рј РґРѕ РєРѕРЅС†Р° Рё РјРµРЅСЏРµРј Р±СѓРєРІСѓ РЅР° СЃР»РµРґСѓСЋС‰СѓСЋ РїРѕ Р°Р»С„Р°РІРёС‚Сѓ */
             for (let j = currentColIndex + 1; j < currentColsQuantity + 1 ; j++) {
                 let letterTd = currentTr.children[j];
                 letterTd.innerHTML = getLetterById(j - 1);
             }
-            // добавление клеток с данными клеток
+            // РґРѕР±Р°РІР»РµРЅРёРµ РєР»РµС‚РѕРє СЃ РґР°РЅРЅС‹РјРё РєР»РµС‚РѕРє
         } else {
             let td = createTableCell(i, currentColIndex);
             tr.children[currentColIndex].before(td);
@@ -192,7 +192,7 @@ function createTableCellContent(td, previousValue) {
         textarea.value = previousValue;
     }
     td.innerHTML = '';
-    // После нажатия на «сохранить», эта форма пропадает, а вместо нее появляется введенный пользователем текст.
+    // РџРѕСЃР»Рµ РЅР°Р¶Р°С‚РёСЏ РЅР° В«СЃРѕС…СЂР°РЅРёС‚СЊВ», СЌС‚Р° С„РѕСЂРјР° РїСЂРѕРїР°РґР°РµС‚, Р° РІРјРµСЃС‚Рѕ РЅРµРµ РїРѕСЏРІР»СЏРµС‚СЃСЏ РІРІРµРґРµРЅРЅС‹Р№ РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј С‚РµРєСЃС‚.
     button.onclick = () => {
         let div = document.createElement('div');
         div.innerText = textarea.value;
@@ -242,15 +242,15 @@ function onInputChanged(inputElement) {
     let select = inputElement.previousElementSibling;
     let button = inputElement.nextElementSibling;
     if (inputElement.value.length === 0) {
-        if (select.value !== '' && select.value !== 'Стиль рамки' && (typeof select.value) !== "undefined") {
-            button.innerText = 'Применить' + ' ' + 'рамка ' + select.value;
+        if (select.value !== '' && select.value !== 'РЎС‚РёР»СЊ СЂР°РјРєРё' && (typeof select.value) !== "undefined") {
+            button.innerText = 'РџСЂРёРјРµРЅРёС‚СЊ' + ' ' + 'СЂР°РјРєР° ' + select.value;
         } else {
-            button.innerText = 'Применить';
+            button.innerText = 'РџСЂРёРјРµРЅРёС‚СЊ';
         }
     } else {
-        button.innerText = 'Применить' + ' ' + inputElement.value + ' px ';
-        if (select.value !== '' && select.value !== 'Стиль рамки' && (typeof select.value) !== "undefined") {
-            button.innerText += ' и рамка ' + select.value;
+        button.innerText = 'РџСЂРёРјРµРЅРёС‚СЊ' + ' ' + inputElement.value + ' px ';
+        if (select.value !== '' && select.value !== 'РЎС‚РёР»СЊ СЂР°РјРєРё' && (typeof select.value) !== "undefined") {
+            button.innerText += ' Рё СЂР°РјРєР° ' + select.value;
         }
     }
 }
@@ -259,18 +259,18 @@ function onSelectChanged(selectElement) {
     let inputElement = selectElement.nextElementSibling;
     let button = inputElement.nextElementSibling;
     if (inputElement.value.length !== 0) {
-        button.innerText = 'Применить' + ' ' + inputElement.value + ' px ';
-        button.innerText = button.innerText = 'Применить' + ' ' + inputElement.value + ' px ';
-        if (selectElement.value !== '' && selectElement.value !== 'Стиль рамки') {
-            button.innerText += ' и рамка ' + selectElement.value;
+        button.innerText = 'РџСЂРёРјРµРЅРёС‚СЊ' + ' ' + inputElement.value + ' px ';
+        button.innerText = button.innerText = 'РџСЂРёРјРµРЅРёС‚СЊ' + ' ' + inputElement.value + ' px ';
+        if (selectElement.value !== '' && selectElement.value !== 'РЎС‚РёР»СЊ СЂР°РјРєРё') {
+            button.innerText += ' Рё СЂР°РјРєР° ' + selectElement.value;
         }
     } else {
-        button.innerText = 'Применить' + ' ' + 'рамка ' + selectElement.value;
+        button.innerText = 'РџСЂРёРјРµРЅРёС‚СЊ' + ' ' + 'СЂР°РјРєР° ' + selectElement.value;
     }
 }
 
 
-// 5. добавить элемент “Изменить границы таблицы”
+// 5. РґРѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚ вЂњРР·РјРµРЅРёС‚СЊ РіСЂР°РЅРёС†С‹ С‚Р°Р±Р»РёС†С‹вЂќ
 createSelectElementContent();
 
 function createSelectElementContent() {
@@ -290,7 +290,7 @@ function getBorderOptions() {
     return borderOptions;
 }
 
-// 6. добавить элемент “Добавить заголовок”.
+// 6. РґРѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚ вЂњР”РѕР±Р°РІРёС‚СЊ Р·Р°РіРѕР»РѕРІРѕРєвЂќ.
 function changeCaption() {
     let inputElement = document.getElementById('add');
     let caption = document.getElementsByTagName('caption')[0];
@@ -299,7 +299,7 @@ function changeCaption() {
 }
 
 
-// 7. добавить элемент “Удалить строку”
+// 7. РґРѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚ вЂњРЈРґР°Р»РёС‚СЊ СЃС‚СЂРѕРєСѓвЂќ
 function deleteElement(button) {
     /*custom-control-input[0] - rows
     * custom-control-input[1] - columns*/
@@ -313,9 +313,9 @@ function deleteRow() {
     if (!isInputCorrect(inputElement, tableRows.length)) {
             $('#myModal').modal('show');
     } else {
-        /*После того как удаляем столбец, он не исчезает,
-         поэтому нужно пробежать по всем строкам после удаленной
-         и изменить буквы в 0 строке*/
+        /*РџРѕСЃР»Рµ С‚РѕРіРѕ РєР°Рє СѓРґР°Р»СЏРµРј СЃС‚РѕР»Р±РµС†, РѕРЅ РЅРµ РёСЃС‡РµР·Р°РµС‚,
+         РїРѕСЌС‚РѕРјСѓ РЅСѓР¶РЅРѕ РїСЂРѕР±РµР¶Р°С‚СЊ РїРѕ РІСЃРµРј СЃС‚СЂРѕРєР°Рј РїРѕСЃР»Рµ СѓРґР°Р»РµРЅРЅРѕР№
+         Рё РёР·РјРµРЅРёС‚СЊ Р±СѓРєРІС‹ РІ 0 СЃС‚СЂРѕРєРµ*/
         tableRows[inputElement.value].remove();
         for (let i = +inputElement.value; i < tableRows.length; i++) {
             tableRows[i].cells[0].innerText -= 1;
@@ -323,17 +323,17 @@ function deleteRow() {
     }
 }
 
-// Добавление - функция удаления столбца
-/*нужно пробежаться по всем строкам и удалить клетки с позицией inputElement.value*/
+// Р”РѕР±Р°РІР»РµРЅРёРµ - С„СѓРЅРєС†РёСЏ СѓРґР°Р»РµРЅРёСЏ СЃС‚РѕР»Р±С†Р°
+/*РЅСѓР¶РЅРѕ РїСЂРѕР±РµР¶Р°С‚СЊСЃСЏ РїРѕ РІСЃРµРј СЃС‚СЂРѕРєР°Рј Рё СѓРґР°Р»РёС‚СЊ РєР»РµС‚РєРё СЃ РїРѕР·РёС†РёРµР№ inputElement.value*/
 function deleteColumn() {
     let inputElement = document.getElementById('delete');
     let tableRows = document.querySelectorAll('tr');
     if (!isInputCorrect(inputElement, tableRows[0].cells.length)) {
         $('#myModal').modal('show');
     } else {
-        /*После того как удаляем строку, она не исчезает,
-         поэтому нужно пробежать по всем строкам после удаленной
-         и уменьшить позицию на один*/
+        /*РџРѕСЃР»Рµ С‚РѕРіРѕ РєР°Рє СѓРґР°Р»СЏРµРј СЃС‚СЂРѕРєСѓ, РѕРЅР° РЅРµ РёСЃС‡РµР·Р°РµС‚,
+         РїРѕСЌС‚РѕРјСѓ РЅСѓР¶РЅРѕ РїСЂРѕР±РµР¶Р°С‚СЊ РїРѕ РІСЃРµРј СЃС‚СЂРѕРєР°Рј РїРѕСЃР»Рµ СѓРґР°Р»РµРЅРЅРѕР№
+         Рё СѓРјРµРЅСЊС€РёС‚СЊ РїРѕР·РёС†РёСЋ РЅР° РѕРґРёРЅ*/
         for (let i = 0; i < tableRows.length; i++) {
             tableRows[i].cells[inputElement.value].remove();
         }
@@ -346,7 +346,7 @@ function isInputCorrect(inputElement, max) {
 }
 
 
-// 8. добавить элемент “Случайный выбор”
+// 8. РґРѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚ вЂњРЎР»СѓС‡Р°Р№РЅС‹Р№ РІС‹Р±РѕСЂвЂќ
 function magic() {
     let td = chooseRandomTableDataCell();
     if (randomInteger(1, 15) === 7) {
@@ -373,8 +373,8 @@ function chooseRandomFontStyle(td) {
     let newFontSize = randomInteger(15, 25) + 'pt';
     td.style.color = newColor;
     td.style.fontSize = newFontSize;
-    /* если форма есть, то для каждого её внутреннего
-    тега задаем стиль
+    /* РµСЃР»Рё С„РѕСЂРјР° РµСЃС‚СЊ, С‚Рѕ РґР»СЏ РєР°Р¶РґРѕРіРѕ РµС‘ РІРЅСѓС‚СЂРµРЅРЅРµРіРѕ
+    С‚РµРіР° Р·Р°РґР°РµРј СЃС‚РёР»СЊ
     */
     if (td.childNodes[0].nodeName === 'form') {
         td.childNodes[0].childNodes.forEach((elem) => {
@@ -395,12 +395,12 @@ function setRandomColor() {
 }
 
 function randomInteger(min, max) {
-    // случайное число от min до (max+1)
+    // СЃР»СѓС‡Р°Р№РЅРѕРµ С‡РёСЃР»Рѕ РѕС‚ min РґРѕ (max+1)
     let rand = min + Math.random() * (max + 1 - min);
     return Math.floor(rand);
 }
 
-// 9. добавить элемент “Удалить”
+// 9. РґРѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚ вЂњРЈРґР°Р»РёС‚СЊвЂќ
 function cleanTable() {
     location.href = "index.html";
 }
