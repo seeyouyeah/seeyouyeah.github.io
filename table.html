@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en"  class="h-100">
+
+<head>
+    <meta charset="windows.1231">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Таблица</title>
+    <link rel="alternate" type="application/rss+xml"
+          title="Статьи с сайта htmlbook.ru" href="http://htmlbook.ru/rss.xml">
+    <link rel="icon" href="icons/favicon.png">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+<style>
+#alert {
+	background: #888888;
+	border: 1px solid #666;
+}
+
+</style>
+</head>
+
+<body class="d-flex flex-column h-100">
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Oops!..</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Введённые данные некорректны.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta charset="windows.1231">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Главная страница</title>
+    <link rel="icon" href="icons/favicon.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+<body class="d-flex flex-column h-100">
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <a class="navbar-brand" href="index.html">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRWbgJ-zVnxUMI5ec6c-TsktXorey-VvtTCUNRoQXpJ0a2mOamN&usqp=CAU" width="30" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html" style="color:#ffffff">Start <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="table.html" style="color:#ffffff">Таблица</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html" style="color:#ffffff">Контакты</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" style="color:#ffffff"	
+                       data-toggle="dropdown" aria-haspopup="true">
+                        Выпадающее меню
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="tasks.html">Github</a>
+                        <a class="dropdown-item" href="map.html">Map</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+
+<main>
+    <div class="container-fluid p-0 d-flex flex-column">
+        <div class="row" id="wrapper">
+            <div class="col-12 order-12">
+                <div class="card-group">
+                    <div class="card bg-secondary">
+                        <div class="card-header text-center" style="color:#ffffff">Выберите границы ячеек</div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <form>
+                                    <select class="form-control form-control-sm mb-3"
+                                            id="select"
+                                            onchange="onSelectChanged(this)">
+                                        <option disabled selected>
+                                            Стиль рамки	
+                                        </option>
+                                    </select>
+                                    <input class="form-control form-control-sm mb-3" type="text" oninput="onInputChanged(this)">
+                                    <button type="button" class="btn btn-dark btn-block" onclick="changeBorders()">Применить
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card bg-secondary">
+                        <div class="card-header text-center" style="color:#ffffff">Название таблицы</div>
+                        <div class="card-body">
+
+                            <div class="form-group">
+                                <form>
+                                    <input class="form-control form-control-sm mb-3" type="text" id="add">
+                                    <button type="button" class="btn btn-dark btn-block" onclick="changeCaption()">Применить
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card bg-secondary">
+                        <div class="card-header text-center" style="color:#ffffff">Удалить элемент</div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <form>
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                                        <label class="custom-control-label" for="customRadio1" style="color:#ffffff"> Строка</label>
+                                    </div>
+                                    <div class="custom-control custom-radio mb-2">
+                                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                                        <label class="custom-control-label" for="customRadio2" style="color:#ffffff"> Столбец</label>
+                                    </div>
+                                    <input class="form-control form-control-sm mb-3" type="text" id="delete">
+                                    <button type="button" class="btn btn-dark btn-block" onclick="deleteElement(this)">Удалить
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card bg-secondary">
+                        <div class="card-header text-center" style="color:#ffffff">Magic здесь</div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <form>
+                                    <button type="button" class="btn btn-dark btn-block"
+                                            onclick="magic()">click for Magic
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card bg-secondary">
+                        <div class="card-header text-center" style="color:#ffffff">Удалить таблицу и вернуться домой</div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <form>
+                                    <button type="button" class="btn btn-dark btn-block" onclick="cleanTable()">Очистить и вернуться
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 order-sm-12 order-sm-5">
+                <div class="container-fluid mt-4 mt-md-6 d-none" id="alertWrapper">
+                    <div class="row justify-content-end">
+                        <div class="col-md-4 col-sm-3">
+                            <div class="alert alert-danger" id="alert" role="alert">
+				<h4 class="alert-heading" style="color:#ffffff">Кажется, что-то пошло не так...</h4>
+                                <hr style="color:#ffffff">
+				<p class="mb-2" style="color:#ffffff">Для создания таблицы необходимо ввести корректные данные.</p>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="color:#ffff00">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</main>
+
+
+<footer class="mt-auto">
+    <div class="container-fluid text-center d-flex align-items-center justify-content-center bg-dark h-100"
+         style="min-height: 50px;">
+        <span style="color: rgba(255,255,255,.5)">
+             <a href="contact.html" style="color: rgba(255,255,255,.75);">Glazunov Anton</a>, N3455
+             <br> <a href="https://itmo.ru/" style="color: rgba(255,255,255,.75);">ITMO</a>, 2020
+        </span>
+    </div>
+</footer>
+
+<script src="second.js" onload="console.log('success')"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

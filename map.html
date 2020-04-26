@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta charset="windows.1231">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Карты</title>
+    <link rel="alternate" type="application/rss+xml"
+          title="Статьи с сайта htmlbook.ru" href="http://htmlbook.ru/rss.xml">
+    <link rel="icon" href="icons/favicon.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        #map {
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body class="d-flex flex-column h-100">
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <a class="navbar-brand" href="index.html">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRWbgJ-zVnxUMI5ec6c-TsktXorey-VvtTCUNRoQXpJ0a2mOamN&usqp=CAU" width="30" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html" style="color:#ffffff">Start<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="table.html" style="color:#ffffff">Таблица</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html" style="color:#ffffff">Контакты</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" style="color:#ffffff"
+                       data-toggle="dropdown" aria-haspopup="true">
+                        Выпадающее меню
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="tasks.html">Github</a>
+                        <a class="dropdown-item active" href="map.html">Map</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main role="main" class="flex-shrink-0" style="height: 100%;">
+    <div id="map"></div>
+    <script>
+        var map;
+        // Initialize and add the map
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 54.7805955, lng: 20.580},
+                zoom: 13
+            });
+        }
+    </script>
+</main>
+
+<footer class="mt-auto">
+    <div class="container-fluid text-center d-flex align-items-center justify-content-center bg-dark h-100"
+         style="min-height: 50px;">
+        <span style="color: rgba(255,255,255,.5)">
+             <a href="contact.html" style="color: rgba(255,255,255,.75);">Glazunov Anton</a>, N3455
+             <br> <a href="https://itmo.ru/" style="color: rgba(255,255,255,.75);">ITMO</a>, 2020
+        </span>
+    </div>
+</footer>
+
+//???
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdjX6JUrh9qKfIuOjTKZRaYcOTEV7OAB8&callback=initMap">
+</script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
