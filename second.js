@@ -1,4 +1,3 @@
-<meta name="http-equiv" content="Content-type: text/html; charset=UTF-8">
 $(window).on('load', function(){
     if (!isParamsCorrect(hrefQueryParams)) {
         $('#alertWrapper').attr("class", "container-fluid mt-3 mt-md-5");
